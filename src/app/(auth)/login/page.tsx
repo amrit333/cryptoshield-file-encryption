@@ -68,10 +68,45 @@ export default function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg font-medium transition-colors">
+          <button type="submit" className="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg font-medium transition-colors cursor-pointer">
             Sign In
           </button>
         </form>
+
+        <div className="relative my-6">
+          <div className="absolute inset-0 flex items-center">
+            <span className="w-full border-t border-border"></span>
+          </div>
+          <div className="relative flex justify-center text-xs uppercase">
+            <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+          className="w-full py-2 px-4 border border-border hover:bg-muted text-foreground rounded-lg font-medium transition-colors flex items-center justify-center gap-2 cursor-pointer"
+        >
+          <svg className="w-5 h-5 mr-1" viewBox="0 0 24 24">
+            <path
+              fill="#EA4335"
+              d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.54 14.98 1 12 1 7.35 1 3.37 3.65 1.42 7.5l3.89 3.02C6.23 7.84 8.87 5.04 12 5.04z"
+            />
+            <path
+              fill="#4285F4"
+              d="M23.49 12.27c0-.81-.07-1.59-.2-2.36H12v4.51h6.43c-.28 1.44-1.09 2.66-2.31 3.48l3.6 2.79c2.1-1.94 3.31-4.79 3.31-8.42z"
+            />
+            <path
+              fill="#FBBC05"
+              d="M5.31 14.52c-.22-.66-.35-1.37-.35-2.11s.13-1.45.35-2.11L1.42 7.28C.51 9.1 0 11.13 0 13.25c0 2.12.51 4.15 1.42 5.97l3.89-3.02l-.08-.08z"
+            />
+            <path
+              fill="#34A853"
+              d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.6-2.79c-.99.66-2.26 1.05-3.6 1.05-3.13 0-5.77-2.8-6.69-5.48L1.18 15.9C3.13 19.75 7.11 23 12 23z"
+            />
+          </svg>
+          Sign in with Google
+        </button>
         
         <div className="mt-6 text-center text-sm text-muted-foreground">
           Don't have an account? <Link href="/register" className="text-cyan-500 hover:underline">Register</Link>
